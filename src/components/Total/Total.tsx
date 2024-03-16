@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {RootState} from "../reducers";
+import {RootState} from "../../reducers";
 
 const Total: React.FC = () => {
     const cartItems = useSelector((state: RootState) => state.cartItems);

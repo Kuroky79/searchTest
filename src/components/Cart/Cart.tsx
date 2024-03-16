@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { decreaseQuantity, increaseQuantity, removeItem } from '../actions/cartActions';
-import '../styles.css';
-import { CartItem } from '../reducers/types';
-import { setCartItems } from '../actions/cartActions';
+import { decreaseQuantity, increaseQuantity, removeItem } from '../../actions/cartActions';
+import './styles.css';
+import { CartItem } from '../../reducers/types';
+import { setCartItems } from '../../actions/cartActions';
 const Cart: React.FC = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state: any) => state.cartItems); // Assuming cart items are stored in the state as 'cartItems'

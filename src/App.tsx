@@ -3,9 +3,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import Cart from './components/Cart';
-import Total from './components/Total';
-import './App.css';
+import Cart from './components/Cart/Cart';
+import Total from './components/Total/Total';
+
 
 const App: React.FC = () => {
     return (
