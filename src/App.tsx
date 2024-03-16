@@ -1,26 +1,25 @@
+// App.tsx
+
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import store from './store';
+import Cart from './components/Cart';
+import Total from './components/Total';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+    return (
+        <Provider store={store}>
+            <div className="container">
+                <div className="left-column">
+                    <Cart />
+                </div>
+                <div className="right-column">
+                    <Total />
+                </div>
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
