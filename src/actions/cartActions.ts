@@ -1,5 +1,7 @@
 // actions/cartActions.ts
 
+import {CartItem} from "../reducers/types";
+
 export const decreaseQuantity = (id: number) => ({
     type: 'DECREASE_QUANTITY',
     payload: id
@@ -13,4 +15,10 @@ export const increaseQuantity = (id: number) => ({
 export const removeItem = (id: number) => ({
     type: 'REMOVE_ITEM',
     payload: id
+});
+export const SET_CART_ITEMS = 'SET_CART_ITEMS';
+
+export const setCartItems = (items: CartItem[]) => ({
+    type: SET_CART_ITEMS,
+    payload: items,
 });

@@ -1,29 +1,28 @@
-// Cart.tsx
-
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { decreaseQuantity, increaseQuantity, removeItem } from '../actions/cartActions';
 import '../styles.css';
-import {CartItem} from "../reducers/types"; // Импортируем стили
-
+import { CartItem } from '../reducers/types';
+import { setCartItems } from '../actions/cartActions';
 const Cart: React.FC = () => {
     const dispatch = useDispatch();
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const cartItems = useSelector((state: any) => state.cartItems); // Assuming cart items are stored in the state as 'cartItems'
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch('https://dummyjson.com/carts/1')
             .then(response => response.json())
             .then(data => {
-                // Обработка полученных данных
                 console.log(data);
-                setCartItems(data.products);
+                dispatch(setCartItems(data.products)); // Dispatch action to set cart items
                 setLoading(false);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
                 setLoading(false);
             });
-    }, []); // Пустой массив зависимостей для выполнения запроса только один раз
+    }, []);
+
     const handleDecrease = (itemId: number) => {
         dispatch(decreaseQuantity(itemId));
     };
@@ -45,9 +44,9 @@ const Cart: React.FC = () => {
             <div className="left-column">
                 <h2>Shopping Cart</h2>
                 <div className="cart">
-                    {cartItems.map(item => (
+                    {cartItems.map((item: CartItem) => (
                         <div className="item" key={item.id}>
-                            <img src={item.thumbnail} alt={item.title} /> {/* Заменить thumbnail на image */}
+                            <img src={item.thumbnail} alt={item.title} />
                             <div className="item-details">
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
@@ -63,8 +62,7 @@ const Cart: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className="right-column">
-            </div>
+            <div className="right-column"></div>
         </div>
     );
 }
