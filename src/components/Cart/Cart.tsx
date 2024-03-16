@@ -6,9 +6,10 @@ import { CartItem } from '../../reducers/types';
 import { setCartItems } from '../../actions/cartActions';
 import Icon from '@mdi/react';
 import { mdiBasketRemoveOutline } from '@mdi/js';
+import {RootState} from "../../reducers";
 const Cart: React.FC = () => {
     const dispatch = useDispatch();
-    const cartItems = useSelector((state: any) => state.cartItems);
+    const cartItems = useSelector((state: RootState) => state.cartItems);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

@@ -2,15 +2,15 @@ interface CartItem {
     id: number;
     title: string;
     description: string;
-    image: string;
+    thumbnail: string;
     price: number;
     quantity: number;
 }
 
 const initialState: CartItem[] = [
     // Test data
-    { id: 1, title: 'Product 1', description: 'Description of Product 1', image: 'product1.jpg', price: 100, quantity: 1 },
-    { id: 2, title: 'Product 2', description: 'Description of Product 2', image: 'product2.jpg', price: 200, quantity: 2 },
+    { id: 1, title: 'Product 1', description: 'Description of Product 1', thumbnail: 'product1.jpg', price: 100, quantity: 1 },
+    { id: 2, title: 'Product 2', description: 'Description of Product 2', thumbnail: 'product2.jpg', price: 200, quantity: 2 },
 ];
 
 type Action =
@@ -20,7 +20,7 @@ type Action =
     | { type: 'REMOVE_ITEM'; payload: number };
 
 
-const cartReducer = (state = initialState, action: Action) => {
+const cartReducer = (state = initialState, action: Action): CartItem[] => {
     switch(action.type) {
         case 'SET_CART_ITEMS':
             return action.payload;

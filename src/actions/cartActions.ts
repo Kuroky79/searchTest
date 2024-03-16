@@ -16,7 +16,7 @@ export const removeItem = (id: number) => ({
 });
 export const SET_CART_ITEMS = 'SET_CART_ITEMS';
 
-export const setCartItems = (items: CartItem[]) => ({
+export const setCartItems = (items: CartItem[]): { type: typeof SET_CART_ITEMS; payload: CartItem[] } => ({
     type: SET_CART_ITEMS,
     payload: items,
 });
