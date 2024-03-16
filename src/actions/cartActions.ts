@@ -1,5 +1,3 @@
-// actions/cartActions.ts
-
 import {CartItem} from "../reducers/types";
 
 export const decreaseQuantity = (id: number) => ({

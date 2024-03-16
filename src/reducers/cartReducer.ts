@@ -1,4 +1,3 @@
-import { SET_CART_ITEMS } from '../actions/cartActions';
 interface CartItem {
     id: number;
     title: string;
@@ -9,7 +8,7 @@ interface CartItem {
 }
 
 const initialState: CartItem[] = [
-    // Example initial state with mock data
+    // Test data
     { id: 1, title: 'Product 1', description: 'Description of Product 1', image: 'product1.jpg', price: 100, quantity: 1 },
     { id: 2, title: 'Product 2', description: 'Description of Product 2', image: 'product2.jpg', price: 200, quantity: 2 },
 ];

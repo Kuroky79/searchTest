@@ -8,7 +8,7 @@ import Icon from '@mdi/react';
 import { mdiBasketRemoveOutline } from '@mdi/js';
 const Cart: React.FC = () => {
     const dispatch = useDispatch();
-    const cartItems = useSelector((state: any) => state.cartItems); // Assuming cart items are stored in the state as 'cartItems'
+    const cartItems = useSelector((state: any) => state.cartItems);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Cart: React.FC = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                dispatch(setCartItems(data.products)); // Dispatch action to set cart items
+                dispatch(setCartItems(data.products));
                 setLoading(false);
             })
             .catch(error => {

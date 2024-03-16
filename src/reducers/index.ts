@@ -1,5 +1,3 @@
-// reducers/index.ts
-
 import { combineReducers } from 'redux';
 import cartReducer from './cartReducer';
 
