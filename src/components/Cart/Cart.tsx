@@ -4,6 +4,8 @@ import { decreaseQuantity, increaseQuantity, removeItem } from '../../actions/ca
 import './styles.css';
 import { CartItem } from '../../reducers/types';
 import { setCartItems } from '../../actions/cartActions';
+import Icon from '@mdi/react';
+import { mdiBasketRemoveOutline } from '@mdi/js';
 const Cart: React.FC = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state: any) => state.cartItems); // Assuming cart items are stored in the state as 'cartItems'
@@ -46,18 +48,22 @@ const Cart: React.FC = () => {
                 <div className="cart">
                     {cartItems.map((item: CartItem) => (
                         <div className="item" key={item.id}>
-                            <img src={item.thumbnail} alt={item.title} />
+                            <img src={item.thumbnail} alt={item.title}/>
                             <div className="item-details">
                                 <h3>{item.title}</h3>
-                                <p>{item.description}</p>
+                                <p className="description">{item.description}</p>
                                 <p>Quantity: {item.quantity}</p>
                                 <p>Price: {item.price} руб.</p>
+                                <div className="actions">
+                                    <button onClick={() => handleDecrease(item.id)}>-</button>
+                                    <button onClick={() => handleIncrease(item.id)}>+</button>
+                                    <button className="remove" onClick={() => handleRemove(item.id)}>
+                                        <Icon className="basket" path={mdiBasketRemoveOutline} size={0.7}/>
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
-                            <div className="actions">
-                                <button onClick={() => handleDecrease(item.id)}>-</button>
-                                <button onClick={() => handleIncrease(item.id)}>+</button>
-                                <button onClick={() => handleRemove(item.id)}>Remove</button>
-                            </div>
+
                         </div>
                     ))}
                 </div>

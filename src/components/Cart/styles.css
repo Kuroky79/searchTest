@@ -31,8 +31,26 @@
 
 .item-details {
     flex: 1;
+    padding-bottom: 20px;
 }
 
 .actions button {
     margin-right: 10px;
+    align-items: center;
+    margin-bottom: 10px;
 }
+
+.basket{
+
+    margin-right: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.remove {
+    margin-right: 0; /* Remove margin-right */
+    vertical-align: center;
+    font-size: 16px;
+    color: red;
+}
+
